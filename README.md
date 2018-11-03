@@ -1,6 +1,6 @@
-Implementing C++ Program during OS Course Syllabus.
+Implementing C++ Program proccessing UNIX file system during OS Course Syllabus.
 
-#Stat Structure
+## Stat Structure
 
 In order to fetch some data about type of file, you should use system calls stat(), or fstat(). 
 Such system calls are declared in these header files:
@@ -34,7 +34,7 @@ struct stat
 };
 ```
 
-#Dirent Structure
+## Dirent Structure
 
 Most of the system calls working with directories operate with the ```dirent``` structure which is declared in the ```<dirent.h> ``` header file.
 
@@ -46,11 +46,11 @@ struct dirent
 }
 ```
 
-#Create and Delete a Directory
+## Create and Delete a Directory
 
 Creating and deleting a directory could be proccessed with the mkdir() and rmdir() system calls. Note: When creating a directory using the mkdir() system call, it places two links ("." and "..").
 
-```
+```cpp
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -58,7 +58,7 @@ int mkdir (char *pathname, mode_t mode);
 int rmdir (char *pathname);
 ```
 
-#Opening a Directory Stream
+## Opening a Directory Stream
 
 Upon successful opening of the directory, the system call returns a pointer to a variable of type DIR, which is a directory handle declared in the dirent.h header file and used when reading and writing to the directory.
 
@@ -67,17 +67,18 @@ Function: DIR * opendir (const char *dirname)
 The opendir function opens and returns a directory stream for reading the directory whose file name is dirname. The stream has type DIR *.
 If unsuccessful, opendir returns a null pointer. 
 
-#Closing a Directory
+## Closing a Directory
 
 int closedir (DIR *dirptr);   /* dirptr - дескриптор каталога */
 
-#Changing a Directory
+## Changing a Directory
 
 To change the directory chdir() system call is used, function described in unistd.h header:
 ```
 #include <unistd.h>
 int chdir (char *pathname);
 ```
+##
 
 
 
